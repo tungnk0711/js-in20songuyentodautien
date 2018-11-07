@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var num = parseInt(prompt("Nhap vao so nguyen: "));
+    var count  = 0;
+    var N = 2;
+    while (count< num){
+        if(kiem_tra_snt(N)){
+            alert(N);
+            count++;
+        }
+        N++;
+    }
+
+    function kiem_tra_snt(n)
+    {
+        // Biến cờ hiệu
+        var flag = true;
+
+        // Nếu n bé hơn 2 tức là không phải số nguyên tố
+        if (n < 2){
+            flag = false;
+        }
+        else if (n == 2){
+            flag = true;
+        }
+        else if (n % 2 == 0){
+            flag = false;
+        }
+        else{
+            // lặp từ 3 tới n-1 với bước nhảy là 2 (i+=2)
+            for (var i = 3; i < n-1; i+=2)
+            {
+                if (n % i == 0){
+                    flag = false;
+                    break;
+                }
+            }
+        }
+
+        return flag;
+    }
+</script>
+</body>
+</html>
